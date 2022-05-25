@@ -51,21 +51,24 @@ void loop() {
   } else { // The game is currently running
     //Check for a winner
     if (digitalRead(FROM_LANE1) == HIGH){
-      //TODO:  Player 1 WON!! do something about it
+      //Player 1 WON!! Turn on Lane LED
+      // TODO: is there anything else to do for the winner?
       digitalWrite(LED_LANE1, HIGH);
       isWinner = 1;
     }
     if (digitalRead(FROM_LANE2) == HIGH){
-      //TODO:  Player 2 WON!! do something about it
-      digitalWrite(LED_LANE1, HIGH);
+      //Player 2 WON!! Turn on Lane LED
+      // TODO: is there anything else to do for the winner?
+      digitalWrite(LED_LANE2, HIGH);
       isWinner = 2;
     }
     if (digitalRead(FROM_LANE3) == HIGH){
-      //TODO:  Player 3 WON!! do something about it
-      digitalWrite(LED_LANE1, HIGH);
+      //Player 3 WON!! Turn on Lane LED
+      // TODO: is there anything else to do for the winner?
+      digitalWrite(LED_LANE3, HIGH);
       isWinner = 3;
     }
-    //TODO:  If someone won, send signal to reset the game
+    // If someone won, send signal to reset the game
     if (isWinner > 0) {
       //Is there something to do here about who won?
       //Turn the game off

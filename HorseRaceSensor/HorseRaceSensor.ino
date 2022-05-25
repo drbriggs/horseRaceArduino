@@ -41,6 +41,7 @@ void loop() {
     newSensor1val = digitalRead(SENSOR1);
     newSensor2val = digitalRead(SENSOR2);
     newSensor3val = digitalRead(SENSOR3);
+    
     // if the sensors have recently changed, add turns to step counter
     if (oldSensor1val == 1 && newSensor1val == 0) {
       stepsToTurn += STEPS_PER_REV;
@@ -51,6 +52,7 @@ void loop() {
     if (oldSensor3val == 1 && newSensor3val == 0) {
       stepsToTurn += STEPS_PER_REV;
     }
+
     // if there is still a value on step counter, turn the motor
     if (stepsToTurn > 0) {
       myStepper.step(1);
@@ -59,8 +61,10 @@ void loop() {
     }
     // if horse has reached the end of the track, notify the controller
     if (stepsTaken >= TOTAL_STEPS) {
+      // This Horse Has Won the Race!!!
       digitalWrite(TO_CONTROLLER, HIGH);
     }
+
     // set old sensor value to current value for next cycle
     oldSensor1val = newSensor1val;
     oldSensor2val = newSensor2val;
